@@ -1,0 +1,41 @@
+{
+  "name": "spfa-back-end",
+  "version": "3.0.0",
+  "description": "Awareness Athletics API",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Emma Holland",
+  "license": "ISC",
+  "dependencies": {
+    "@paypal/paypal-js": "^4.2.1",
+    "body-parser": "^1.19.0",
+    "chart.js": "^3.7.0",
+    "compression": "^1.7.4",
+    "connect-mongo": "^4.6.0",
+    "country-code-lookup": "0.0.20",
+    "crypto": "^1.0.1",
+    "dotenv": "^10.0.0",
+    "dotenv-expand": "^8.0.3",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "express-session": "^1.17.2",
+    "formidable": "^2.0.1",
+    "fs": "0.0.1-security",
+    "http-proxy": "^1.18.1",
+    "jquery": "^3.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "lightslider": "^1.1.6",
+    "mongoose": "^6.0.13",
+    "mongoose-findorcreate": "^3.0.0",
+    "multer": "^1.4.4",
+    "nodemailer": "^6.7.2",
+    "passport": "^0.5.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "sharp": "^0.30.3",
+    "xhr2": "^0.2.1",
+    "xml2js": "^0.4.23"
+  }
+}
