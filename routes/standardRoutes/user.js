@@ -11,10 +11,9 @@ exports.api = (app) => {
         const account = req.session.user;
         const registrations = await Registration.getByTeam(`${req.session.user.name.givenName} ${req.session.user.familyName}`, req.session.user.cell);
         const orders = await Order.getByClientsId(req.session.passport.user);
-        const registrationPayments = await Promise.all(await registrations.map((registration) => {
-            return Payment.getByOrder(registration._id).then((payments) => {
-                return payments
-            });
+        const registrationPayments = await Promise.all(await registrations.map(async (registration) => {
+            const payments = await Payment.getByOrder(registration._id);
+            return payments;
         }));
         const orderPayments = await Promise.all(await orders.map((order) => {
             return Payment.getByOrder(order._id).then((payments) => {
@@ -36,7 +35,7 @@ exports.api = (app) => {
             res.status(400).send(error);
         });
     }).put(authenticateToken, (req, res) => {
-        // update exciting data
+        // update exciting data 
     }).delete(authenticateToken, (req, res) => {
         // delete data  
         User.logout(req).then(() => {

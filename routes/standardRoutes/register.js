@@ -68,7 +68,7 @@ exports.api = (app) => {
                     try {
                         Payment.add(registration._id, data.payment.id, data.payment.status, data.payment.purchase_units[0].amount.value, data.payment.purchase_units[0].amount.currency_code, data.payment.create_time, "paypal");
                     } catch (error) {
-                        email.sendEmail("emma@spfacanada.ca", "Payment error on line 73 routes/registration.js", error, error);
+                        email.sendEmail("emma@spfacanada.ca", "Payment error on line 71 routes/registration.js", error, error);
                     }
                 }
                 res.status(200).send('"' + team.team + '" was registered ! Invoice: ' + registration._id);
