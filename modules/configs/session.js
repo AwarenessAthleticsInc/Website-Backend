@@ -15,7 +15,7 @@ exports.config = (app) => {
             ttl: 14 * 24 * 60 * 60
         }),
         cookie: {
-            secure: process.env.NODE_ENV === "development" ? false : true, //change this when production is done { secure: true }
+            secure: false, //change this when production is done { secure: true }
             maxAge: 5184000000 // 60 days
         }
     }));

@@ -1,6 +1,6 @@
 require("dotenv").config();
 const nodemailer = require('nodemailer');
-var domain = process.env.NODE_ENV === "development" ? "http://localhost:4000" : "https://spfacanada.ca";
+var domain = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://spfacanada.ca";
 
 async function Email(sender, subject, text, html, email) {
   // create reusable transporter object using the default SMTP transport
