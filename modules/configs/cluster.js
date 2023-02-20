@@ -27,7 +27,6 @@ exports.config = (app) => {
                 if (err) {
                     console.log(err);
                 }
-                console.log("Started PID: " + process.pid + " @ localhost:5000");
             });
         }
     }

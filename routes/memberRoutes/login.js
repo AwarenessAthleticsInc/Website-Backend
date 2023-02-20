@@ -22,8 +22,12 @@ exports.api = (app) => {
     });
 
     app.route('/api/authenticate').get(checkAuthentication, (req, res) => {
-        const token = require('../../modules/Oauth/jwt').generateAccessToken({ id: req.session.passport.user });
-        res.status(200).send(token);
+        try {
+            const token = require('../../modules/Oauth/jwt').generateAccessToken({ id: req.session.passport.user });
+            res.status(200).send(token);
+        } catch(err) {
+            console.log(err);
+        }
     });
 
     app.route('/api/forgotpassword').post((req, res) => {

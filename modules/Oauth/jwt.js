@@ -15,14 +15,14 @@ exports.authenticateToken = (req, res, next) => {
     })
 }
 exports.authenticateAdmin = (req, res, next) => {
-   if(req.session.user.roles !== 'admin') {
-       return res.status(403).send('User does not have the right permissions to preform this action');
-   }
-   next();
+    if (req.session.user.roles !== 'admin') {
+        return res.status(403).send('User does not have the right permissions to preform this action');
+    }
+    next();
 }
 exports.authenticateConvener = (req, res, next) => {
     if (req.session.user.roles === 'admin') {
-       next();
+        next();
     } else if (req.session.user.roles !== 'Convener') {
         next();
     } else {
@@ -30,11 +30,16 @@ exports.authenticateConvener = (req, res, next) => {
     }
 }
 exports.generateAccessToken = (mongoID) => {
-    return jwt.sign(mongoID, process.env.TOKEN_SECRET, { expiresIn: '24h' });
-    /**
-     * everytime a user loads the website and they are logged in
-     * a new session token will be issues for that user
-     */
+    try {
+        return jwt.sign(mongoID, process.env.TOKEN_SECRET, { expiresIn: '24h' });
+        /**
+        * everytime a user loads the website and they are logged in
+        * a new session token will be issues for that user
+        */
+    } catch (err) {
+        console.log(err);
+    }
+
 }
 
 
