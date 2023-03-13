@@ -358,6 +358,17 @@ exports.updateProfilePicture = (id, imagePath) => {
         });
     });
 }
+exports.updateRole = (id, role) => {
+    return new Promise((resolve, reject) => {
+        User.findByIdAndUpdate(id, {
+            roles: role
+        }).then((user) => {
+            resolve("Udated successful");
+        }).catch((error) => {
+            reject(error);
+        });
+    });
+}
 //delete
 exports.delete = (id) => {
     return new Promise((resolve, reject) => {
